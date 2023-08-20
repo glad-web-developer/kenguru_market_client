@@ -1,0 +1,117 @@
+$color1: #ffa900;
+$color2: #777;
+
+#app {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100vh  !important;
+  height: -webkit-fill-available;
+  max-height: 100vh  !important;;
+  overflow-x: auto;
+  //overflow-y: hidden;
+}
+
+html {
+  height: -webkit-fill-available;
+  overflow-y: hidden;
+  font-family: Roboto, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  overflow-y: hidden;
+}
+
+
+.btn {
+  border-radius: 15px;
+  padding-left: 18px;
+  padding-right: 18px;
+
+}
+
+.br-15 {
+  border-radius: 15px;
+}
+
+.input-group-append {
+  .btn {
+    font-size: 12pt;
+    height: 38px;
+  }
+}
+
+
+.btn-warning {
+  background-color: $color1;
+  border-color: $color1;
+  color: #fff;
+
+  &:hover {
+    color: $color1;
+    background: none;
+  }
+}
+
+.btn-outline-warning {
+  &:hover, &:active {
+    border-color: $color1;
+    color: #fff;
+    background-color: $color1;
+  }
+
+  border-color: $color1;
+  color: $color1;
+}
+
+.text-warning {
+  color: $color1;
+}
+
+.nav-tabs {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+
+  .nav-link {
+    color: $color2;
+
+    &:hover {
+      color: $color1;
+    }
+  }
+}
+
+
+.bg--dark {
+  background-color: #363636 !important;
+}
+
+.text-warning {
+  color: $color1 !important;
+}
+
+.bg--warning{
+  background-color: #fb8c00 !important;
+}
+
+#app .v-application .primary--text {
+  caret-color: #444 !important;
+  color: #444 !important;
+}
+
+#app {
+  max-height: inherit;
+  height: auto;
+}
+
+.border-radius-0{
+  border-radius: 0!important;
+}
+
+.pointer-cursor{
+  cursor: pointer;
+}
+.theme--dark.v-btn.v-btn--disabled.v-btn--has-bg.px-5{
+  background-color: rgba(255, 169, 0, 0.5) !important;
+}
