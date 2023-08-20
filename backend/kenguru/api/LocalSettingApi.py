@@ -3,6 +3,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 import requests
+
+from kenguru.local_setting import CRM_CLIENT_SAVE_URL, MARKET_TOKEN
 from kenguru.models import LocalSetting
 from kenguru.serializers import LocalSettingSerializer
 
@@ -39,7 +41,22 @@ class LocalSettingApi(APIView):
 
         if serializer.is_valid():
             serializer.save()
-            return Response(serializer.data)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        try:
+            ip = requests.get('https://api.ipify.org').content.decode('utf8')
+        except Exception:
+            raise Exception('Не смог получить IP клиента от сайта https://api.ipify.org')
+
+        requests.post(CRM_CLIENT_SAVE_URL, data={
+            'token':MARKET_TOKEN,
+            'ip':ip,
+            'audio':request.data['audio'],
+            'id':request.data['market_id'],
+        })
+
+        return Response({'status':'ok'})
+
 
 

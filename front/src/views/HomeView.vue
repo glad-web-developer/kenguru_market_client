@@ -12,14 +12,13 @@
           <form class="card-body text-center" v-if="isLoad==='ok'">
 
 
-
             <div class="mb-5">
               <v-autocomplete
                   label="Маркет*"
                   item-text="name"
                   no-data-text="Маркет не найден"
                   item-value="id"
-                     :messages="`Был: ` + lastMarket"
+                  :messages="`Был: ` + lastMarket"
                   :items="marketsList"
                   v-model="market"/>
             </div>
@@ -40,7 +39,7 @@
 
             <div class="mb-5 mt-5">
               <div>IP: {{ ip }}</div>
-                 <small>Синхронизация: {{ dateUpdate }}</small>
+              <small>Синхронизация: {{ dateUpdate }}</small>
             </div>
 
 
@@ -192,7 +191,7 @@ export default {
       try {
         const index = this.marketsList.findIndex(p => p.id === this.market);
         const marketName = this.marketsList[index].name;
-
+        this.isLoad = '';
 
         const url = LOCAL_CONFIG.urls.localSetting;
         const response = await fetch(url, {
@@ -210,13 +209,15 @@ export default {
         });
         if (response.status === 200) {
           this.$emit('showAlert', 'Синхронизация с CRM прошла');
-            this.refresh()
+          this.refresh()
         } else {
           this.$emit('showAlert', 'Ошибка при синхронизации. Подробности в консоли');
         }
       } catch (e) {
         this.$emit('showAlert', "Ошибка при синхронизации. Подробности в консоли");
       }
+
+           this.isLoad = 'ok';
     }
   },
 

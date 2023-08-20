@@ -7,6 +7,7 @@ export default {
     urls: {
         autocomplete: `${crmUrl}/api1/market/autocomplete`,
         localSetting: `${localUrl}/get_local_setting`,
+        // clientSave: `${crmUrl}/api1/market/client_save`,
     },
 
 }

@@ -29,6 +29,6 @@ class MARKET_CONNECT_STATUS(models.IntegerChoices):
     DONT_AUDIO = 5, 'Не найдено звуковое устройство'
 
 MARKET_TOKEN = '!!!ken!!!guru!!'
-
+CRM_CLIENT_SAVE_URL = f'{BASE_URL}/api1/market/client_save'
 
 
