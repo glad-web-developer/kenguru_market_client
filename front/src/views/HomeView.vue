@@ -38,7 +38,6 @@
             </div>
 
             <div class="mb-5 mt-5">
-              <div>IP: {{ ip }}</div>
               <small>Синхронизация: {{ dateUpdate }}</small>
             </div>
 
@@ -98,7 +97,6 @@ export default {
       lastMarket: 'н/д',
       errorText: '',
       dateUpdate: 'н/д',
-      ip: 'н/д',
       marketsList: [],
       audioList: [],
       isLoad: ''
@@ -162,7 +160,6 @@ export default {
           self.lastMarket = data.setting.marketName;
           self.lastAudio = data.setting.audio;
           self.audio = data.setting.audio;
-          self.ip = data.ip;
           self.dateUpdate = data.setting.dateUpdate;
           self.isLoad = 'ok'
         } else {

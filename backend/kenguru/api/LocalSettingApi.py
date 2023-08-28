@@ -17,10 +17,6 @@ class LocalSettingApi(APIView):
         except Exception:
             local_setting = LocalSetting()
 
-        try:
-            ip = requests.get('https://api.ipify.org').content.decode('utf8')
-        except Exception:
-            raise Exception('Не смог получить IP клиента от сайта https://api.ipify.org')
 
 
         serializer = LocalSettingSerializer(local_setting, many=False)
@@ -29,7 +25,6 @@ class LocalSettingApi(APIView):
         return Response({
             'setting':serializer.data,
             'audio_list':audio_list,
-            'ip':ip,
         })
 
     def post(self, request):
@@ -44,14 +39,9 @@ class LocalSettingApi(APIView):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-        try:
-            ip = requests.get('https://api.ipify.org').content.decode('utf8')
-        except Exception:
-            raise Exception('Не смог получить IP клиента от сайта https://api.ipify.org')
 
         r = requests.post(CRM_CLIENT_SAVE_URL, data={
             'token':MARKET_TOKEN,
-            'ip':ip,
             'status': MARKET_CONNECT_STATUS.OK,
             'audio': request.data['audio'],
             'id':request.data['market_id'],
