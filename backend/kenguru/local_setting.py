@@ -30,5 +30,5 @@ class MARKET_CONNECT_STATUS(models.IntegerChoices):
 
 MARKET_TOKEN = '!!!ken!!!guru!!'
 CRM_CLIENT_SAVE_URL = f'{BASE_URL}/api1/market/client_save'
-SYNC_TYME_SEC = 10
+SYNC_TYME_SEC = 60
 
