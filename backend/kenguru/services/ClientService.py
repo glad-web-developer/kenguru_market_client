@@ -21,5 +21,5 @@ class ClientService:
             'token': MARKET_TOKEN,
             'id': local_setting.market_id,
             'audio': local_setting.audio,
-            'status': status
+            'status': MARKET_CONNECT_STATUS.OK
         })

@@ -25,8 +25,8 @@ urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 # запуск синхронизации каждые 10(по умолчанию) секунд
-# sync_thread = RunSyncThread()
-# sync_thread.start()
+sync_thread = RunSyncThread()
+sync_thread.start()
 
 
 # import sounddevice as sd
