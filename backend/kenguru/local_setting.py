@@ -2,8 +2,8 @@ import os
 from django.db import models
 
 from kenguru.settings import BASE_DIR
-BASE_URL = 'http://127.0.0.1:8000'
-# BASE_URL = 'http://crm.ikenguru.ru'
+# BASE_URL = 'http://127.0.0.1:8000'
+BASE_URL = 'http://crm.ikenguru.ru'
 SECRET_KEY = 'django-insecure-%(k0$a0y6!j+(kptj*=tn^_=&!4x_7e3$xyjyp$=xc1b0+^pv+'
 CORS_ORIGIN_WHITELIST = ["http://localhost:8080", 'http://crm.ikenguru.ru', 'http://localhost:127.0.0.1']
 
