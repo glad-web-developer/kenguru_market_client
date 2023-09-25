@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -34,9 +35,11 @@ class LocalSettingApi(APIView):
 
 
         service = ClientService()
-        service.send_to_crm()
+        r = service.send_to_crm()
 
-        return Response({'status':'ok'})
+        if r.status_code == 200:
+            return Response({'status':'ok'})
+        return HttpResponse(r.text, status=400)
 
 
 

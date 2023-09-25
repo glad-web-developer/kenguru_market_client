@@ -31,7 +31,7 @@ class ClientService:
             print('Ошибка с C# ' + str(e))
 
 
-        requests.post(CRM_CLIENT_SAVE_URL, data={
+        return requests.post(CRM_CLIENT_SAVE_URL, data={
             'token': MARKET_TOKEN,
             'id': local_setting.market_id,
             'status': status
