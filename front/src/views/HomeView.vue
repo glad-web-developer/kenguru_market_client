@@ -25,15 +25,6 @@
 
             <div class="mb-5">
 
-              <v-autocomplete
-                  label="Аудиоустройство*"
-                  v-model="audio"
-                  item-text="name"
-                  :messages="`Было: ` + lastAudio"
-                  item-value="id"
-                  no-data-text="Не найдены аудиоустройства"
-                  :items="audioList"
-              ></v-autocomplete>
 
             </div>
 
@@ -47,7 +38,7 @@
                 dark
                 class="px-5"
                 @click="save"
-                :disabled="!(market && audio) "
+                :disabled="!(market) "
             >Синхронизировать
             </v-btn>
 
@@ -93,7 +84,6 @@ export default {
     return {
       market: '',
       audio: '',
-      lastAudio: 'н/д',
       lastMarket: 'н/д',
       errorText: '',
       dateUpdate: 'н/д',
@@ -155,11 +145,8 @@ export default {
         });
         if (response.status === 200) {
           const data = await response.json();
-          self.audioList = data.audioList;
           self.market = data.setting.marketId;
           self.lastMarket = data.setting.marketName;
-          self.lastAudio = data.setting.audio;
-          self.audio = data.setting.audio;
           self.dateUpdate = data.setting.dateUpdate;
           self.isLoad = 'ok'
         } else {

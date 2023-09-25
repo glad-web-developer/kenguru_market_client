@@ -9,13 +9,12 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
 
-from kenguru.api import LocalSettingApi, GetStatusApi
+from kenguru.api import LocalSettingApi
 from kenguru.thread import RunSyncThread
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('get_local_setting', LocalSettingApi.as_view()),
-    path('getStatus', GetStatusApi.as_view()),
     path('', TemplateView.as_view(template_name="index.html"))
 
 ]

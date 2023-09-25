@@ -12,8 +12,6 @@ pycparser==2.21
 pyo==1.0.5
 pytz==2023.3
 requests==2.31.0
-SoundCard==0.4.2
-sounddevice==0.4.6
 sqlparse==0.4.4
 typing_extensions==4.7.1
 urllib3==2.0.4

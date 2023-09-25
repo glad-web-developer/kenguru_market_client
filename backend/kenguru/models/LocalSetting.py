@@ -11,5 +11,4 @@ class LocalSetting(models.Model):
     market_name = models.CharField('Маркет', max_length=255)
     connect_status = models.IntegerField('Статус клиента', choices=MARKET_CONNECT_STATUS.choices,
                                          default=MARKET_CONNECT_STATUS.DONT_FIRST_CONNECT)
-    audio = models.CharField('Аудио устройство', max_length=255)
     date_update = models.DateTimeField('Дата обновления', auto_now=True)
