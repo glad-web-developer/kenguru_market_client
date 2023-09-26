@@ -1,2 +1,1 @@
-pip install -r requirements.txt
-python manage.py runserver 8001
+python manage.py send_to_crm_cron_start
