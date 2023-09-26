@@ -1,3 +1,4 @@
+import datetime
 import time
 
 from django.core.management import BaseCommand
@@ -16,9 +17,9 @@ class Command(BaseCommand):
             try:
                 service = ClientService()
                 service.send_to_crm()
-                self.stdout.write(self.style.SUCCESS(f'Клиент синхронизировался'))
+                self.stdout.write(self.style.SUCCESS(f'{datetime.datetime.now()} Клиент синхронизировался'))
             except Exception:
-                self.stdout.write(self.style.SUCCESS(f'Клиент ещё нe настроен'))
+                self.stdout.write(self.style.SUCCESS(f'{datetime.datetime.now()}  Клиент ещё нe настроен'))
 
             time.sleep(SYNC_TYME_SEC)
 
